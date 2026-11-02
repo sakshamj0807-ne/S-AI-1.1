@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Saksham Jha — Computer Science student, AI enthusiast, and aspiring developer. Personal portfolio showcasing projects, skills, and achievements." />
+  <meta name="author" content="Saksham Jha" />
+  <meta property="og:title" content="Saksham Jha | Portfolio" />
+  <meta property="og:description" content="CS Student · AI Enthusiast · Hackathon Competitor" />
+  <meta name="theme-color" content="#7b2ff7" />
+  <title>Saksham Jha | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (icons via CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/cursor.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════
+       LOADING SCREEN
+       ════════════════════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Loading portfolio">
+    <div class="loader-logo">SJ</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <p class="loader-text">Initialising portfolio…</p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       CUSTOM CURSOR
+       ════════════════════════════════════════════════════════ -->
+  <div id="cursor-dot"  aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       NAVBAR
+       ════════════════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Home">SJ</a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger for mobile -->
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="nav-mobile" role="list">
+      <a href="#about"        role="listitem">About</a>
+      <a href="#skills"       role="listitem">Skills</a>
+      <a href="#projects"     role="listitem">Projects</a>
+      <a href="#education"    role="listitem">Education</a>
+      <a href="#achievements" role="listitem">Achievements</a>
+      <a href="#contact"      role="listitem">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+    <!-- Particle canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Ambient orbs -->
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-label">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        Available for opportunities
+      </div>
+
+      <h1 class="hero-name">
+        <span class="first">Saksham</span>
+        <span class="last">Jha</span>
+      </h1>
+
+      <p class="hero-tagline">
+        <span id="typing-target" class="typing-text" aria-live="polite">Computer Science Student</span>
+        <br />
+        Passionate about <span class="highlight">Artificial Intelligence</span>,
+        <span class="highlight">Cybersecurity</span>, and building
+        <span class="highlight">impactful tech</span>.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+          View My Work
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+          Get In Touch
+        </a>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-value">B.Tech</span>
+          <span class="stat-label">Year 1 · CS</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-value">3+</span>
+          <span class="stat-label">Hackathons</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-value">∞</span>
+          <span class="stat-label">Curiosity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <button class="hero-scroll" aria-label="Scroll down">
+      <div class="scroll-line" aria-hidden="true"></div>
+      <span>Scroll</span>
+    </button>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       ABOUT
+       ════════════════════════════════════════════════════════ -->
+  <section id="about" class="section-padding grid-bg" aria-label="About me">
+    <div class="section-container">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Get to know me</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="about-grid">
+        <!-- Visual -->
+        <div class="about-visual reveal">
+          <div class="avatar-frame">
+            <div class="avatar-glow"  aria-hidden="true"></div>
+            <div class="avatar-bg"    aria-hidden="true"></div>
+            <div class="avatar-initials" aria-hidden="true">SJ</div>
+            <div class="avatar-ring"  aria-hidden="true"></div>
+          </div>
+
+          <!-- Floating chips -->
+          <div class="float-chip float-chip-1" aria-hidden="true">
+            <span class="chip-icon">🐍</span> Python
+          </div>
+          <div class="float-chip float-chip-2" aria-hidden="true">
+            <span class="chip-icon">🔒</span> Cybersecurity
+          </div>
+          <div class="float-chip float-chip-3" aria-hidden="true">
+            <span class="chip-icon">🤖</span> AI/ML
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+          <p class="about-intro reveal">
+            Hey! I'm <strong>Saksham Jha</strong>, a first-year
+            <strong>B.Tech Computer Science</strong> student with an
+            insatiable passion for technology. I believe the future
+            will be shaped by those who understand both how to
+            <strong>build intelligent systems</strong> and how to
+            <strong>secure them</strong>.
+          </p>
+
+          <p class="about-intro reveal reveal-delay-1">
+            I dive deep into <strong>Python programming</strong>,
+            explore the frontiers of <strong>Artificial Intelligence</strong>,
+            and sharpen my skills in <strong>cybersecurity</strong> through
+            Capture The Flag competitions. Every hackathon is a chance
+            to turn ideas into reality under pressure — and I love it.
+          </p>
+
+          <div class="about-passion stagger-children">
+            <div class="passion-item">
+              <span class="passion-icon">🤖</span>
+              <div class="passion-content">
+                <h4>Artificial Intelligence</h4>
+                <p>Fascinated by machine learning fundamentals, neural networks, and how AI is reshaping every industry.</p>
+              </div>
+            </div>
+            <div class="passion-item">
+              <span class="passion-icon">🔐</span>
+              <div class="passion-content">
+                <h4>Cybersecurity</h4>
+                <p>Learning ethical hacking, CTF challenges, and the mindset required to think like both attacker and defender.</p>
+              </div>
+            </div>
+            <div class="passion-item">
+              <span class="passion-icon">💻</span>
+              <div class="passion-content">
+                <h4>Software Development</h4>
+                <p>Building clean, efficient code in Python and exploring web technologies to bring ideas to life.</p>
+              </div>
+            </div>
+            <div class="passion-item">
+              <span class="passion-icon">🏆</span>
+              <div class="passion-content">
+                <h4>Competitive Programming & Hackathons</h4>
+                <p>Competing in SIH, Hacktoberfest, and various CTFs to push my limits and collaborate with talented peers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       SKILLS
+       ════════════════════════════════════════════════════════ -->
+  <section id="skills" class="section-padding" aria-label="Skills">
+    <div class="section-container">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">What I work with</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="skills-grid stagger-children">
+
+        <!-- Languages -->
+        <article class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon" aria-hidden="true">💻</div>
+            <h3 class="skill-cat-name">Languages</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">C (Basics)</span>
+          </div>
+        </article>
+
+        <!-- AI & ML -->
+        <article class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon" aria-hidden="true">🤖</div>
+            <h3 class="skill-cat-name">AI & Machine Learning</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">ML Fundamentals</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Scikit-learn (exploring)</span>
+          </div>
+        </article>
+
+        <!-- Cybersecurity -->
+        <article class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon" aria-hidden="true">🔐</div>
+            <h3 class="skill-cat-name">Cybersecurity</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cybersecurity Basics</span>
+            <span class="skill-tag">CTF Challenges</span>
+            <span class="skill-tag">Linux CLI</span>
+            <span class="skill-tag">Network Fundamentals</span>
+            <span class="skill-tag">OSINT (Basics)</span>
+          </div>
+        </article>
+
+        <!-- Tools -->
+        <article class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon" aria-hidden="true">🛠️</div>
+            <h3 class="skill-cat-name">Tools & Platforms</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Jupyter Notebook</span>
+            <span class="skill-tag">Google Colab</span>
+          </div>
+        </article>
+
+        <!-- Soft Skills -->
+        <article class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon" aria-hidden="true">🧠</div>
+            <h3 class="skill-cat-name">Soft Skills</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Fast Learning</span>
+            <span class="skill-tag">Creative Thinking</span>
+            <span class="skill-tag">Presentation</span>
+          </div>
+        </article>
+
+        <!-- Currently Learning -->
+        <article class="skill-category">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon" aria-hidden="true">🚀</div>
+            <h3 class="skill-cat-name">Currently Exploring</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Docker (Basics)</span>
+            <span class="skill-tag">API Development</span>
+            <span class="skill-tag">Cloud (AWS/GCP)</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       PROJECTS
+       ════════════════════════════════════════════════════════ -->
+  <section id="projects" class="section-padding grid-bg" aria-label="Projects">
+    <div class="section-container">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">What I've built</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="projects-grid stagger-children">
+
+        <!-- Project 1 -->
+        <article class="project-card">
+          <span class="project-status status-active">Active</span>
+          <div class="project-card-top">
+            <div class="project-icon" aria-hidden="true">🔐</div>
+            <div class="project-links">
+              <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Password Strength Analyser</h3>
+            <p class="project-desc">
+              A Python tool that evaluates password strength using entropy calculations, common pattern detection, and dictionary-attack simulations. Provides actionable feedback and suggests stronger alternatives.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">RegEx</span>
+              <span class="stack-tag">CLI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <span class="project-status status-active">Active</span>
+          <div class="project-card-top">
+            <div class="project-icon" aria-hidden="true">📊</div>
+            <div class="project-links">
+              <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Data Analysis Dashboard</h3>
+            <p class="project-desc">
+              An exploratory data analysis project using Python data science libraries to visualise trends, generate insights, and practice real-world data wrangling techniques with public datasets.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">Pandas</span>
+              <span class="stack-tag">Matplotlib</span>
+              <span class="stack-tag">Jupyter</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <span class="project-status status-learning">Learning</span>
+          <div class="project-card-top">
+            <div class="project-icon" aria-hidden="true">🌐</div>
+            <div class="project-links">
+              <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-desc">
+              This very website — a fully hand-coded portfolio featuring custom animations, particle effects, glassmorphism UI, and a responsive layout built without any CSS framework.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">HTML5</span>
+              <span class="stack-tag">CSS3</span>
+              <span class="stack-tag">JavaScript</span>
+              <span class="stack-tag">Canvas API</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <span class="project-status status-active">Active</span>
+          <div class="project-card-top">
+            <div class="project-icon" aria-hidden="true">🤖</div>
+            <div class="project-links">
+              <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">ML Experiments Notebook</h3>
+            <p class="project-desc">
+              A collection of hands-on machine learning experiments — from linear regression to decision trees — exploring core ML algorithms with clean documentation and visual results.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">Scikit-learn</span>
+              <span class="stack-tag">NumPy</span>
+              <span class="stack-tag">Google Colab</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 — CTF -->
+        <article class="project-card">
+          <span class="project-status status-active">Active</span>
+          <div class="project-card-top">
+            <div class="project-icon" aria-hidden="true">🚩</div>
+            <div class="project-links">
+              <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">CTF Write-ups Repository</h3>
+            <p class="project-desc">
+              Detailed write-ups for Capture The Flag challenges I've solved — covering categories like cryptography, web exploitation, forensics, and OSINT, with step-by-step explanations.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">CTF</span>
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">Linux</span>
+              <span class="stack-tag">Cryptography</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 — Python Automation -->
+        <article class="project-card">
+          <span class="project-status status-learning">Learning</span>
+          <div class="project-card-top">
+            <div class="project-icon" aria-hidden="true">⚡</div>
+            <div class="project-links">
+              <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Python Automation Scripts</h3>
+            <p class="project-desc">
+              A growing toolkit of Python scripts for automating repetitive tasks: file organisation, web scraping, report generation, and more — saving time through smart automation.
+            </p>
+            <div class="project-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">BeautifulSoup</span>
+              <span class="stack-tag">OS Module</span>
+              <span class="stack-tag">Requests</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- GitHub CTA -->
+      <div style="text-align:center; margin-top:3rem;" class="reveal">
+        <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          View All on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       EDUCATION
+       ════════════════════════════════════════════════════════ -->
+  <section id="education" class="section-padding" aria-label="Education">
+    <div class="section-container">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Academic journey</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="timeline">
+
+        <!-- B.Tech -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2024 — Present</div>
+            <h3 class="timeline-degree">B.Tech in Computer Science & Engineering</h3>
+            <div class="timeline-institution">University / Institute (Update with your institution)</div>
+            <p class="timeline-detail">
+              First-year undergraduate pursuing Computer Science with a strong focus on core programming fundamentals, data structures, discrete mathematics, and digital electronics. Actively involved in technical clubs and hackathons.
+            </p>
+            <span class="timeline-badge">
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              Current · Year 1
+            </span>
+          </div>
+        </div>
+
+        <!-- 12th -->
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2022 — 2024</div>
+            <h3 class="timeline-degree">Senior Secondary (Class XII)</h3>
+            <div class="timeline-institution">School Name (Update with your school)</div>
+            <p class="timeline-detail">
+              Completed higher secondary education with Physics, Chemistry, Mathematics, and Computer Science. Developed foundational programming skills and a passion for problem-solving.
+            </p>
+            <span class="timeline-badge">
+              <i class="fa-solid fa-school" aria-hidden="true"></i>
+              PCM + Computer Science
+            </span>
+          </div>
+        </div>
+
+        <!-- 10th -->
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">Upto 2022</div>
+            <h3 class="timeline-degree">Secondary Education (Class X)</h3>
+            <div class="timeline-institution">School Name (Update with your school)</div>
+            <p class="timeline-detail">
+              Built strong academic fundamentals across core subjects. Developed early interest in technology, mathematics, and logical reasoning.
+            </p>
+            <span class="timeline-badge">
+              <i class="fa-solid fa-book" aria-hidden="true"></i>
+              Completed
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       ACHIEVEMENTS
+       ════════════════════════════════════════════════════════ -->
+  <section id="achievements" class="section-padding grid-bg" aria-label="Achievements">
+    <div class="section-container">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Milestones & recognition</span>
+        <h2 class="section-title">Achievements</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="achievements-grid stagger-children">
+
+        <!-- Hacktoberfest -->
+        <article class="achievement-card">
+          <div class="achievement-badge" aria-hidden="true">🎃</div>
+          <h3 class="achievement-title">Hacktoberfest Participant</h3>
+          <p class="achievement-desc">
+            Participated in the globally recognised open-source event, contributing pull requests to real-world projects on GitHub and learning collaborative software development workflows.
+          </p>
+          <div class="achievement-meta">
+            <span class="meta-tag hackathon">Open Source</span>
+            <span class="meta-tag learning">GitHub</span>
+          </div>
+        </article>
+
+        <!-- SIH -->
+        <article class="achievement-card">
+          <div class="achievement-badge" aria-hidden="true">🇮🇳</div>
+          <h3 class="achievement-title">Smart India Hackathon (SIH)</h3>
+          <p class="achievement-desc">
+            Competed in India's largest hackathon organised by the Government of India — proposed innovative technology solutions for real national-level problem statements with a cross-functional team.
+          </p>
+          <div class="achievement-meta">
+            <span class="meta-tag hackathon">Hackathon</span>
+            <span class="meta-tag competition">National</span>
+          </div>
+        </article>
+
+        <!-- CTF -->
+        <article class="achievement-card">
+          <div class="achievement-badge" aria-hidden="true">🚩</div>
+          <h3 class="achievement-title">CTF Competitions</h3>
+          <p class="achievement-desc">
+            Actively participates in Capture The Flag cybersecurity competitions, solving challenges across cryptography, web exploitation, reverse engineering, and forensics categories.
+          </p>
+          <div class="achievement-meta">
+            <span class="meta-tag security">Cybersecurity</span>
+            <span class="meta-tag competition">Competition</span>
+          </div>
+        </article>
+
+        <!-- Cybersecurity Basics -->
+        <article class="achievement-card">
+          <div class="achievement-badge" aria-hidden="true">🔐</div>
+          <h3 class="achievement-title">Cybersecurity Fundamentals</h3>
+          <p class="achievement-desc">
+            Completed structured learning in cybersecurity basics covering network security, ethical hacking principles, cryptography fundamentals, and security best practices.
+          </p>
+          <div class="achievement-meta">
+            <span class="meta-tag security">Security</span>
+            <span class="meta-tag learning">Certified</span>
+          </div>
+        </article>
+
+        <!-- Python -->
+        <article class="achievement-card">
+          <div class="achievement-badge" aria-hidden="true">🐍</div>
+          <h3 class="achievement-title">Python Programming</h3>
+          <p class="achievement-desc">
+            Demonstrated proficiency in Python fundamentals, data structures, file handling, and library usage. Applied Python to real-world automation, data analysis, and scripting projects.
+          </p>
+          <div class="achievement-meta">
+            <span class="meta-tag learning">Programming</span>
+          </div>
+        </article>
+
+        <!-- B.Tech Year 1 -->
+        <article class="achievement-card">
+          <div class="achievement-badge" aria-hidden="true">🎓</div>
+          <h3 class="achievement-title">B.Tech CS — Year 1 Scholar</h3>
+          <p class="achievement-desc">
+            Successfully completing the first year of a rigorous Computer Science engineering programme, balancing academics with self-driven projects, hackathons, and cybersecurity exploration.
+          </p>
+          <div class="achievement-meta">
+            <span class="meta-tag hackathon">Academia</span>
+            <span class="meta-tag competition">CS Engineering</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       CONTACT
+       ════════════════════════════════════════════════════════ -->
+  <section id="contact" class="section-padding" aria-label="Contact">
+    <div class="section-container">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Let's connect</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </header>
+
+      <div class="contact-inner">
+        <p class="contact-tagline reveal">
+          Whether you want to collaborate on a project, discuss ideas, or
+          just say hello — my inbox is always open.
+          I'm actively looking for internships, open-source collaborations,
+          and hackathon teammates.
+        </p>
+
+        <a href="mailto:sakshamjha@example.com" class="contact-email reveal" aria-label="Send email to Saksham Jha">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          sakshamjha@example.com
+        </a>
+
+        <div class="social-links reveal reveal-delay-1">
+          <a href="https://github.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+            <i class="fa-brands fa-github s-icon" aria-hidden="true"></i>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/sakshamjha" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+            <i class="fa-brands fa-linkedin s-icon" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+          <a href="https://twitter.com/sakshamjha" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter Profile">
+            <i class="fa-brands fa-x-twitter s-icon" aria-hidden="true"></i>
+            Twitter / X
+          </a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <a href="#hero" class="btn btn-primary">
+            <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+            Back to Top
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <p class="footer-text">
+      Designed &amp; Built by <span>Saksham Jha</span> &nbsp;·&nbsp;
+      <span id="footer-year"></span> &nbsp;·&nbsp;
+      Made with ❤️ &amp; a lot of ☕
+    </p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════════════════ -->
+  <script src="js/particles.js" defer></script>
+  <script src="js/cursor.js"    defer></script>
+  <script src="js/main.js"      defer></script>
+</body>
+</html>
+
