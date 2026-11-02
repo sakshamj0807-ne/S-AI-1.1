@@ -1,0 +1,65 @@
+/* ============================================================
+   animations.css  —  Keyframe library & transition helpers
+   ============================================================ */
+
+/* ── GRADIENT SHIFT (logo, accent text) ──────────────────── */
+@keyframes grad-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── SHIMMER SWEEP (cards on hover) ─────────────────────── */
+@keyframes shimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+
+.proj-card::before,
+.skill-card::after,
+.ach-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.035), transparent);
+  pointer-events: none;
+  transition: none;
+}
+
+.proj-card:hover::before { animation: shimmer .7s ease forwards; }
+.skill-card:hover::after  { animation: shimmer .7s ease forwards; }
+.ach-card:hover::after    { animation: shimmer .7s ease forwards; }
+
+/* ── GLOW PULSE (hero name) ─────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(16,185,129,.25)); }
+  50%       { filter: drop-shadow(0 0 28px rgba(16,185,129,.5)); }
+}
+
+.hero-name-line { animation: glow-pulse 4s ease-in-out infinite; }
+
+/* ── COUNTER ODOMETER (stats) ────────────────────────────── */
+@keyframes count-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.metric-val { animation: count-up .5s ease .9s both; }
+
+/* ── BORDER WALK (featured card) ────────────────────────── */
+@keyframes border-walk {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ── FLOAT TAGS (avatar chips) ──────────────────────────── */
+/* Defined in style.css for specificity — see float-a/b/c */
+
+/* ── TYPEWRITER CURSOR ───────────────────────────────────── */
+/* .type-cursor blink defined in style.css */
+
+/* ── SECTION TITLE UNDERLINE GROW ───────────────────────── */
+.title-rule { animation: rule-grow 1s var(--ease) .5s both; }
+@keyframes rule-grow { from { width: 0; opacity: 0; } to { width: 48px; opacity: 1; } }
+
+/* ── CARD TILT 3D ────────────────────────────────────────── */
+/* Applied via JS mouse-enter/leave */
+.tilt-card { transform-style: preserve-3d; will-change: transform; }

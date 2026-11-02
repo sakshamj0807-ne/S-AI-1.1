@@ -1,0 +1,8 @@
+/* ============================================================
+   cursor.css  —  Custom cursor additional states
+   ============================================================ */
+
+/* Mix-blend ensures dot is always visible on any bg */
+#cursor-dot { mix-blend-mode: screen; }
+
+/* Link / button hover state — handled in style.css via .hovered */
